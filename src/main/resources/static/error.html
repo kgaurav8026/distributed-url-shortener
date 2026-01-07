@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Not Found - ShortURL</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+        .error-page h1 {
+            font-size: 2rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .error-page p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4L4 12V28L20 36L36 28V12L20 4Z" stroke="#4F46E5" stroke-width="2" fill="none"/>
+                    <path d="M20 12L12 16V24L20 28L28 24V16L20 12Z" fill="#4F46E5"/>
+                </svg>
+                <h1>ShortURL</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="error-page">
+                <div class="error-icon">🔍</div>
+                <h1>URL Not Found</h1>
+                <p>The short URL you're looking for doesn't exist or may have expired.</p>
+                <a href="/" class="btn-primary">Go to Homepage</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ShortURL. Built with Spring Boot, Redis & ZooKeeper</p>
+        </footer>
+    </div>
+</body>
+</html>
+

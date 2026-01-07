@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Make Your Links Short & Sweet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4L4 12V28L20 36L36 28V12L20 4Z" stroke="#4F46E5" stroke-width="2" fill="none"/>
+                    <path d="M20 12L12 16V24L20 28L28 24V16L20 12Z" fill="#4F46E5"/>
+                </svg>
+                <h1>ShortURL</h1>
+            </div>
+            <p class="tagline">Simplify your links, amplify your reach</p>
+        </header>
+
+        <main>
+            <div class="shortener-card">
+                <h2>Shorten Your URL</h2>
+                <form id="shortenForm">
+                    <div class="form-group">
+                        <label for="longUrl">Enter your long URL</label>
+                        <input
+                            type="url"
+                            id="longUrl"
+                            name="longUrl"
+                            placeholder="https://example.com/very/long/url/that/needs/shortening"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expirationDays">Expiration (Optional)</label>
+                        <select id="expirationDays" name="expirationDays">
+                            <option value="">Never expire</option>
+                            <option value="1">1 day</option>
+                            <option value="7">7 days</option>
+                            <option value="30">30 days</option>
+                            <option value="90">90 days</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="shortenBtn">
+                        <span class="btn-text">Shorten URL</span>
+                        <span class="btn-loader" style="display: none;">
+                            <div class="spinner"></div>
+                        </span>
+                    </button>
+                </form>
+
+                <div id="result" class="result" style="display: none;">
+                    <div class="result-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Your shortened URL is ready!</h3>
+                    </div>
+
+                    <div class="url-display">
+                        <input type="text" id="shortUrlDisplay" readonly>
+                        <button class="btn-copy" id="copyBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+
+                    <div class="url-info">
+                        <div class="info-item">
+                            <span class="info-label">Original URL:</span>
+                            <span class="info-value" id="originalUrl"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Created:</span>
+                            <span class="info-value" id="createdAt"></span>
+                        </div>
+                        <div class="info-item" id="expiresAtContainer" style="display: none;">
+                            <span class="info-label">Expires:</span>
+                            <span class="info-value" id="expiresAt"></span>
+                        </div>
+                    </div>
+
+                    <button class="btn-secondary" id="newUrlBtn">Shorten Another URL</button>
+                </div>
+
+                <div id="error" class="error" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                        <line x1="12" y1="8" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>URLs are shortened instantly with our high-performance system</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Built with Redis caching and ZooKeeper for distributed reliability</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Base62 Encoding</h3>
+                    <p>Efficient counter-based mechanism ensures unique short URLs</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ShortURL. Built with Spring Boot, Redis & ZooKeeper</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
