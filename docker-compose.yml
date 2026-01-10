@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   zookeeper:
@@ -9,6 +8,10 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - url-shortener-zookeeper-data:/data
+      - url-shortener-zookeeper-datalog:/datalog
+      - url-shortener-zookeeper-logs:/logs
     networks:
       - url-shortener-network
 
@@ -17,9 +20,21 @@ services:
     container_name: url-shortener-redis
     ports:
       - "6379:6379"
+    volumes:
+      - url-shortener-redis-data:/data
     networks:
       - url-shortener-network
     command: redis-server --appendonly yes
+
+volumes:
+  url-shortener-zookeeper-data:
+    name: url-shortener-zookeeper-data
+  url-shortener-zookeeper-datalog:
+    name: url-shortener-zookeeper-datalog
+  url-shortener-zookeeper-logs:
+    name: url-shortener-zookeeper-logs
+  url-shortener-redis-data:
+    name: url-shortener-redis-data
 
 networks:
   url-shortener-network:

@@ -49,6 +49,16 @@ logs/
 *~
 
 # Application specific
+*.bat
+!start.bat
+!stop.bat
+
+# Test files
+test-*.html
+START_HERE.txt
+
+# Docker volumes (local only)
+docker-data/
 application-local.properties
 application-dev.properties
 
