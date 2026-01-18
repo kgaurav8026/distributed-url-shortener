@@ -16,12 +16,6 @@
 - [Features](#-features)
 - [Architecture](#️-architecture)
 - [Tech Stack](#️-tech-stack)
-- [Quick Start](#-quick-start)
-- [API Documentation](#-api-documentation)
-- [Project Structure](#-project-structure)
-- [Configuration](#️-configuration)
-- [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
